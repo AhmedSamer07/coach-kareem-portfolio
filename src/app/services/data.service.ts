@@ -40,44 +40,66 @@ export class DataService {
     }
   ];
 
-  readonly packages: CoachingPackage[] = [
+readonly packages: CoachingPackage[] = [
     {
-      id: 'weekly',
-      title: 'Weekly Kickstart',
-      price: '$45',
-      duration: '/ week',
+      id: '1-month',
+      title: '1 Month - شهر',
+      price: '800',
+      duration: '/ 1 month',
       features: [
-        'Custom 7-day meal plan',
-        'Tailored workout split',
-        'Form check via video',
-        '1 Check-in call'
+        'دايت بلان',
+        'جدول تمرين مناسب لهدفك',
+        'شيت لتسجيل الاوزان',
+        'متابعة يومية واتساب',
+        'فيديوهات تمرين',
+        'بدائل الوجبات',
+        'متابعة عاداتك اليومية'
       ]
     },
     {
-      id: 'half-month',
-      title: '15-Day Shred Protocol',
-      price: '$85',
-      duration: '/ 15 days',
-      isPopular: true,
+      id: '3-months',
+      title: '3 Months - ٣ شهور',
+      price: '2000',
+      duration: '/ 3 months',
+      isPopular: true, // Highlights this as the best deal
       features: [
-        'Dynamic macro & nutrition plan',
-        'Personalized gym & home split',
-        'Weekly form check review',
-        'WhatsApp direct messaging',
-        'Cardio & recovery guide'
+        'دايت بلان',
+        'جدول تمرين مناسب لهدفك',
+        'شيت لتسجيل الاوزان',
+        'متابعة يومية واتساب',
+        'فيديوهات تمرين',
+        'بدائل الوجبات',
+        'متابعة عاداتك اليومية'
       ]
     },
     {
-      id: 'monthly',
-      title: 'Monthly Total Transformation',
-      price: '$150',
-      duration: '/ month',
+      id: '6-months',
+      title: '6 Months - ٦ شهور',
+      price: '3600',
+      duration: '/ 6 months',
       features: [
-        'Full 30-day adaptive diet & gym blueprint',
-        'Supplement recommendation stack',
-        '24/7 VIP WhatsApp support',
-        '4 In-depth video check-ins',
-        'Access to private workout library'
+        'دايت بلان',
+        'جدول تمرين مناسب لهدفك',
+        'شيت لتسجيل الاوزان',
+        'متابعة يومية واتساب',
+        'فيديوهات تمرين',
+        'بدائل الوجبات',
+        'متابعة عاداتك اليومية'
+      ]
+    },
+    {
+      id: '12-months',
+      title: '12 Months - سنة',
+      price: '7000',
+      duration: '/ 1 year',
+      features: [
+        'دايت بلان',
+        'جدول تمرين مناسب لهدفك',
+        'شيت لتسجيل الاوزان',
+        'متابعة يومية واتساب',
+        'فيديوهات تمرين',
+        'بدائل الوجبات',
+        'متابعة عاداتك اليومية'
       ]
     }
   ];

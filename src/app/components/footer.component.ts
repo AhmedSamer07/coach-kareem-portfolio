@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
         </div>
 
         <div class="flex gap-6 text-sm">
-          <a href="https://instagram.com" target="_blank" class="hover:text-brand-ice transition">Instagram</a>
+          <a href="https://www.instagram.com/kareemhmed_kfit?igsi=MWNqcmp6ZWpteGYyYg==" target="_blank" class="hover:text-brand-ice transition">Instagram</a>
           <a href="https://facebook.com" target="_blank" class="hover:text-brand-ice transition">Facebook</a>
           <a href="https://wa.me/201558298988" target="_blank" class="hover:text-brand-ice transition">WhatsApp</a>
         </div>

@@ -57,7 +57,7 @@ import { Component } from '@angular/core';
         <div class="flex justify-center lg:justify-end">
           <div class="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[440px] lg:h-[440px] rounded-full p-2 bg-gradient-to-tr from-brand-ice via-sky-600 to-slate-800 shadow-2xl transition-transform duration-700 hover:scale-105">
             <img 
-              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=80" 
+              src="assets/coach1.jpg" 
               alt="Coach Kareem" 
               class="w-full h-full object-cover rounded-full border-4 border-slate-900"
             />
