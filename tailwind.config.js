@@ -7,10 +7,10 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          light: '#d1f2eb',     // The soft mint/white mix
-          primary: '#50c878',   // The bright emerald green
-          dark: '#0b6e4f',      // The rich forest green
-          darkest: '#003526'    // The deep, almost-black background green
+          navy: '#0F172A',
+          dark: '#020617',
+          ice: '#38BDF8',
+          accent: '#0EA5E9',
         }
       }
     },
