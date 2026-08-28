@@ -18,17 +18,25 @@ import { DataService } from '../services/data.service';
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div 
             *ngFor="let item of (showAll() ? allTransformations : allTransformations.slice(0, 3))" 
-            class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer group"
+            class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer group"
             (click)="openGallery(item)"
           >
             <!-- Show the first image as the main cover -->
             <div class="w-full relative overflow-hidden bg-slate-900">
-              <img [src]="item.images[0]" [alt]="item.name + ' Transformation'" class="w-full h-auto block transition-transform duration-700 group-hover:scale-105">
+              <img [src]="item.images[0]" [alt]="item.name + ' Transformation'" class="w-full h-auto block transition-transform duration-700 group-hover:scale-110">
               
-              <!-- Indicator showing how many extra photos there are -->
-              <div *ngIf="item.images.length > 1" class="absolute top-3 right-3 bg-slate-950/70 text-white px-2.5 py-1 rounded-md text-xs font-bold flex items-center gap-1.5 backdrop-blur-sm">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                +{{item.images.length - 1}}
+              <!-- CLEARER INDICATOR: Bright badge showing total photos -->
+              <div *ngIf="item.images.length > 1" class="absolute top-3 right-3 bg-sky-500 text-white px-3 py-1.5 rounded-full text-xs font-extrabold shadow-lg flex items-center gap-1.5 border border-sky-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                {{item.images.length}} Photos
+              </div>
+
+              <!-- HOVER OVERLAY: Appears when mouse moves over the image -->
+              <div *ngIf="item.images.length > 1" class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                <div class="bg-white/95 text-slate-900 px-6 py-3 rounded-full font-bold text-sm shadow-2xl flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <svg class="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                  Click to View Gallery
+                </div>
               </div>
             </div>
 
@@ -68,12 +76,12 @@ import { DataService } from '../services/data.service';
         <!-- Current Displayed Image -->
         <img [src]="selectedClient().images[currentImgIndex()]" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-fade-in">
 
-        <!-- Left Arrow (Only show if there is more than 1 image) -->
+        <!-- Left Arrow -->
         <button *ngIf="selectedClient().images.length > 1" (click)="prevImage($event)" class="absolute left-0 md:-left-12 bg-slate-800/80 hover:bg-sky-500 text-white p-3 rounded-full transition shadow-lg">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
         </button>
 
-        <!-- Right Arrow (Only show if there is more than 1 image) -->
+        <!-- Right Arrow -->
         <button *ngIf="selectedClient().images.length > 1" (click)="nextImage($event)" class="absolute right-0 md:-right-12 bg-slate-800/80 hover:bg-sky-500 text-white p-3 rounded-full transition shadow-lg">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
         </button>
@@ -92,7 +100,6 @@ export class TransformationsComponent {
   
   showAll = signal(false);
   
-  // Variables to manage the popup gallery
   selectedClient = signal<any>(null);
   currentImgIndex = signal(0);
 
@@ -100,21 +107,19 @@ export class TransformationsComponent {
     this.showAll.update(val => !val);
   }
 
-  // Opens the gallery and locks scrolling on the background page
   openGallery(client: any) {
     this.selectedClient.set(client);
     this.currentImgIndex.set(0);
     document.body.style.overflow = 'hidden'; 
   }
 
-  // Closes gallery and restores background scrolling
   closeGallery() {
     this.selectedClient.set(null);
     document.body.style.overflow = 'auto'; 
   }
 
   nextImage(event: Event) {
-    event.stopPropagation(); // Prevents click from accidentally closing the popup
+    event.stopPropagation(); 
     const client = this.selectedClient();
     if (client) {
       const nextIndex = (this.currentImgIndex() + 1) % client.images.length;
