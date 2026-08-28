@@ -19,7 +19,14 @@ export class DataService {
       name: 'Client 2',
       duration: '30 Days',
       lostWeight: 'Muscle Gain & Fat Loss',
-      images: ['assets/trans21.png', 'assets/trans22.png', 'assets/trans23.png', 'assets/trans24.png']
+      images: ['assets/trans21.png', 'assets/trans22.png', 'assets/trans23.png']
+    },
+    {
+      id: 3,
+      name: 'Client 3',
+      duration: '45 Days',
+      lostWeight: 'Muscle Gain & Fat Loss',
+      images: ['assets/trans24.png']
     },
   ];
 

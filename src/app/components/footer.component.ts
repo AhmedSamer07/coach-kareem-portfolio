@@ -4,19 +4,19 @@ import { Component } from '@angular/core';
   selector: 'app-footer',
   standalone: true,
   template: `
-    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+    <footer class="bg-brand-darkest text-brand-light/70 py-12 border-t border-brand-dark">
       <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div>
-          <span class="text-xl font-bold text-white tracking-wider">COACH <span class="text-brand-ice">KAREEM</span></span>
-          <p class="text-xs text-slate-500 mt-1">High Performance Fitness & Nutrition Coaching</p>
+          <span class="text-xl font-bold text-white tracking-wider">COACH <span class="text-brand-primary">KAREEM</span></span>
+          <p class="text-xs text-brand-light/50 mt-1">High Performance Fitness & Nutrition Coaching</p>
         </div>
 
         <div class="flex gap-6 text-sm">
-          <a href="https://www.instagram.com/kareemhmed_kfit?igsi=MWNqcmp6ZWpteGYyYg==" target="_blank" class="hover:text-brand-ice transition">Instagram</a>
-          <a href="https://wa.me/201558298988" target="_blank" class="hover:text-brand-ice transition">WhatsApp</a>
+          <a href="https://www.instagram.com/kareemhmed_kfit?igsi=MWNqcmp6ZWpteGYyYg==" target="_blank" class="hover:text-brand-primary transition">Instagram</a>
+          <a href="https://wa.me/201558298988" target="_blank" class="hover:text-brand-primary transition">WhatsApp</a>
         </div>
 
-        <p class="text-xs text-slate-600">© 2026 Coach Kareem. All rights reserved.</p>
+        <p class="text-xs text-brand-light/40">© 2026 Coach Kareem. All rights reserved.</p>
       </div>
     </footer>
   `
